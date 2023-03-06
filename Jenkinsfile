@@ -21,3 +21,13 @@ node {
    // }
  // }
 }
+def Properties getProperties(filename) {
+def properties = new Properties()
+properties.load(new StringReader(readFile(filename)))
+return properties
+}
+ 
+@NonCPS
+def jsonParse(def json) {
+new groovy.json.JsonSlurperClassic().parseText(json)
+}
